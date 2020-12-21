@@ -1,0 +1,10 @@
+
+[TEST]
+R1-vcp ansible_host=192.168.121.207
+R2-vcp ansible_host=192.168.121.168
+R3-vcp ansible_host=192.168.121.143
+R4-vcp ansible_host=192.168.121.111
+R5-vcp ansible_host=192.168.121.74
+R6-vcp ansible_host=192.168.121.95
+R7-vcp ansible_host=192.168.121.223
+

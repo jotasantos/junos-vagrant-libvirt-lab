@@ -1,0 +1,5 @@
+- name: "Get committed configuration"
+  junos_config:
+    backup: yes
+    backup_options:
+      filename: "{{ inventory_hostname }}.xml"

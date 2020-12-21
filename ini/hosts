@@ -1,0 +1,16 @@
+
+[VMX]
+R1-vcp ansible_host=192.168.121.42
+R2-vcp ansible_host=192.168.121.112
+R3-vcp ansible_host=192.168.121.91
+R4-vcp ansible_host=192.168.121.16
+R5-vcp ansible_host=192.168.121.72
+R6-vcp ansible_host=192.168.121.70
+R7-vcp ansible_host=192.168.121.175
+P1-vcp ansible_host=192.168.121.194
+DC1-vcp ansible_host=192.168.121.233
+[CSR]
+C1 ansible_host=192.168.121.236
+C2 ansible_host=192.168.121.225
+T1 ansible_host=192.168.121.14
+

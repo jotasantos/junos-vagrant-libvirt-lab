@@ -1,0 +1,7 @@
+- name: "Push ios configuration"
+  ios_config:
+    src: "/root/junos-vmx-18.2r1.9-vagrant-virtual-lab/roles/retrieve-ios/backup/{{ inventory_hostname }}"
+
+- name: "Save ios configuration"
+  ios_config:
+    save_when: modified

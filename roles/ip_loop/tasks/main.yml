@@ -1,0 +1,7 @@
+- name: Change configuration using junos_config module
+  junos_config:
+    lines:
+      - "set interfaces {{ item.name }} family inet address  {{ item.ip }}/{{item.mask}}"
+      - "set system host-name {{inventory_hostname}}"
+    comment: "Update IP for interface {{ item.name }}"
+  with_items: "{{ interfaces }}"

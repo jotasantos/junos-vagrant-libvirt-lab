@@ -1,0 +1,36 @@
+interfaces:
+  - name: lo0.0
+    description: Loopback interface
+    ip: 4.4.4.4
+    peer: 192.168.2.2
+    mask: 32
+  # - name: ge-0/0/0.0
+  #   description: Zero interface
+  #   ip: 10.0.2.6
+  #   peer: 192.168.1.2
+  #   mask: 30
+  # - name: ge-0/0/1.0
+  #   description: First interface
+  #   ip: 10.0.8.9
+  #   peer: 192.168.2.2
+  #   mask: 30
+  - name: ge-0/0/2.0
+    description: Second interface
+    ip: 172.30.0.22
+    peer: 192.168.2.2
+    mask: 30
+  - name: ge-0/0/3.0
+    description: Third interface
+    ip: 172.30.0.29
+    peer: 192.168.2.2
+    mask: 30
+  - name: ge-0/0/4.0
+    description: Fourth interface
+    ip: 172.30.0.6
+    peer: 192.168.2.2
+    mask: 30
+  # - name: ge-0/0/6.0
+  #   description: Fifth interface  
+  #   ip: 10.0.4.21
+  #   peer: 192.168.2.2
+  #   mask: 30

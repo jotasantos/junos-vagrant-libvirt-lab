@@ -1,0 +1,188 @@
+Building configuration...
+
+Current configuration : 2340 bytes
+!
+! Last configuration change at 10:07:49 UTC Sat Jun 13 2020 by vagrant
+!
+version 15.5
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no platform punt-keepalive disable-kernel-core
+platform console serial
+!
+hostname C1
+!
+boot-start-marker
+boot-end-marker
+!
+!
+vrf definition Mgmt-intf
+ !
+ address-family ipv4
+ exit-address-family
+ !
+ address-family ipv6
+ exit-address-family
+!
+!
+aaa new-model
+!
+!
+aaa authentication login default local
+aaa authorization exec default local 
+!
+!
+!
+!
+!
+aaa session-id common
+!
+!
+!
+!
+!
+!
+!
+!
+!
+
+
+ip domain name lab.local
+
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+subscriber templating
+!
+multilink bundle-name authenticated
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+license udi pid CSR1000V sn 9E4GVKQL801
+spanning-tree extend system-id
+!
+username vagrant privilege 15 secret 5 $1$sxq6$XotJhpy6mtWmYv/iInquh0
+!
+redundancy
+!
+!
+!
+!
+!
+!
+ip ssh version 2
+ip ssh pubkey-chain
+  username vagrant
+   key-hash ssh-rsa DD3BB82E850406E9ABFFA80AC0046ED6 
+! 
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+! 
+! 
+!
+!
+interface Loopback0
+ ip address 15.15.15.15 255.255.255.255
+!
+interface GigabitEthernet1
+ description vagrant-management
+ ip address dhcp
+ negotiation auto
+!
+interface GigabitEthernet2
+ ip address 172.16.0.1 255.255.255.252
+ negotiation auto
+!
+interface GigabitEthernet3
+ ip address 172.16.0.5 255.255.255.252
+ negotiation auto
+!
+router bgp 111
+ bgp log-neighbor-changes
+ network 10.45.0.0 mask 255.255.255.0
+ redistribute connected route-map CONN
+ neighbor 172.16.0.2 remote-as 222
+ neighbor 172.16.0.6 remote-as 222
+!
+!
+virtual-service csr_mgmt
+!
+ip forward-protocol nd
+!
+no ip http server
+no ip http secure-server
+!
+!
+ip prefix-list CONN seq 5 permit 10.45.0.0/24
+!
+route-map CONN permit 10
+ match ip address prefix-list CONN
+!
+route-map REDIS permit 10
+!
+!
+!
+!
+!
+control-plane
+!
+ !
+ !
+ !
+ !
+!
+!
+!
+!
+alias exec sri sh run | i
+alias exec srs sh run | s
+alias exec srb sh run | b
+alias exec sr sh run
+alias exec sip sh ip int brief
+alias exec sir sh ip routedr rou
+alias exec sirr sh ipv6 route
+alias exec si sh ip
+alias exec sipp sh ipv6 int brieean
+alias exec sii sh ipv6
+alias exec svv sh bgp vpnv6 unicast
+alias exec c conf t
+alias exec sis sh interface status
+alias exec sisw sh int switchport
+alias exec sv show vlan
+alias exec sit show interface trunk
+!
+line con 0
+ exec-timeout 35791 0
+line vty 1
+ length 0
+line vty 2 4
+!
+!
+end

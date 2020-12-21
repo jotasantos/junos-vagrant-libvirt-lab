@@ -1,0 +1,5 @@
+- name: "Get committed configuration"
+  junos_config:
+    update: "override"
+    src : "../../retrieve/backup/{{ inventory_hostname }}.xml"
+    comment: "updated using Ansible"

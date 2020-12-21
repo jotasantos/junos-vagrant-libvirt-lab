@@ -1,0 +1,11 @@
+- name: Change configuration using ios_config module - set the host name
+  ios_config:
+    lines: hostname {{ inventory_hostname }}
+
+- name: Change configuration using ios_config module - configure the interfaces
+  ios_config:
+    lines:
+      - "ip address {{ item.ip }} {{item.mask}}"
+    parents: "interface {{ item.name }}"
+  with_items: "{{ interfaces }}"
+

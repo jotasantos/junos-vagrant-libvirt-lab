@@ -1,0 +1,6 @@
+- name: Retrieve configurations using juniper_junos_config module
+  hosts: all
+  connection: local
+  gather_facts: false
+  roles:
+    - retrieve

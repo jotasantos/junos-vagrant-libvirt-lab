@@ -1,0 +1,154 @@
+Building configuration...
+
+Current configuration : 1457 bytes
+!
+! Last configuration change at 10:07:46 UTC Sat Jun 13 2020 by vagrant
+!
+version 15.5
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no platform punt-keepalive disable-kernel-core
+platform console serial
+!
+hostname C2
+!
+boot-start-marker
+boot-end-marker
+!
+!
+vrf definition Mgmt-intf
+ !
+ address-family ipv4
+ exit-address-family
+ !
+ address-family ipv6
+ exit-address-family
+!
+!
+aaa new-model
+!
+!
+aaa authentication login default local
+aaa authorization exec default local 
+!
+!
+!
+!
+!
+aaa session-id common
+!
+!
+!
+!
+!
+!
+!
+!
+!
+
+
+ip domain name lab.local
+
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+subscriber templating
+!
+multilink bundle-name authenticated
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+license udi pid CSR1000V sn 90PJZ1J6ZZJ
+spanning-tree extend system-id
+!
+username vagrant privilege 15 secret 5 $1$sxq6$XotJhpy6mtWmYv/iInquh0
+!
+redundancy
+!
+!
+!
+!
+!
+!
+ip ssh version 2
+ip ssh pubkey-chain
+  username vagrant
+   key-hash ssh-rsa DD3BB82E850406E9ABFFA80AC0046ED6 
+! 
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+! 
+! 
+!
+!
+interface Loopback0
+ ip address 14.14.14.14 255.255.255.255
+!
+interface GigabitEthernet1
+ description vagrant-management
+ ip address dhcp
+ negotiation auto
+!
+interface GigabitEthernet2
+ ip address 172.16.0.9 255.255.255.252
+ shutdown
+ negotiation auto
+!
+!
+virtual-service csr_mgmt
+!
+ip forward-protocol nd
+!
+no ip http server
+no ip http secure-server
+!
+!
+!
+!
+!
+!
+control-plane
+!
+ !
+ !
+ !
+ !
+!
+!
+!
+!
+!
+line con 0
+line vty 1
+ length 0
+line vty 2 4
+!
+!
+end

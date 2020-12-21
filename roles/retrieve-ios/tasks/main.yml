@@ -1,0 +1,7 @@
+- name: "Get committed configuration"
+  ios_config:
+    host: "{{ ansible_host }}"
+    backup: yes
+    backup_options:
+      filename: "{{ inventory_hostname }}"
+      dir_path: "/root/junos-vmx-18.2r1.9-vagrant-virtual-lab/roles/retrieve-ios/backup/"
