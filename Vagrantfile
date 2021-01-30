@@ -21,8 +21,8 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "R1-vcp" do |node|
     guest_name = "R1-vcp"
-    node.vm.box = "juniper/vmx-18.2R1.9-vcp"
-    node.vm.box_version = "18.2R1.9"
+    node.vm.box = "juniper/vmx-17.4R1.16-vcp"
+    node.vm.box_version = "17.4R1.16"
     node.vm.guest = :tinycore
     node.vm.synced_folder ".", "/vagrant", id: "vagrant-root", disabled: true
 
@@ -34,17 +34,17 @@ Vagrant.configure("2") do |config|
       domain.memory = 1024
       domain.disk_bus = "ide"
       domain.nic_adapter_count = 11
-      domain.storage :file, :path => "#{username}-#{guest_name}-vmx-vcp-hdb-18.2R1.9-base.qcow2", :size => "196870144", :type => "qcow2", :bus => "ide", :device => "hdb", :allow_existing => true
-      domain.storage :file, :path => "#{username}-#{guest_name}-vmx-vcp-hdc-18.2R1.9-base.img", :size => "16777216", :type => "raw", :bus => "ide", :device => "hdc", :allow_existing => true
+      domain.storage :file, :path => "#{username}-#{guest_name}-vmx-vcp-hdb-17.4R1.16-base.qcow2", :size => "196870144", :type => "qcow2", :bus => "ide", :device => "hdb", :allow_existing => true
+      domain.storage :file, :path => "#{username}-#{guest_name}-vmx-vcp-hdc-17.4R1.16-base.img", :size => "16777216", :type => "raw", :bus => "ide", :device => "hdc", :allow_existing => true
     end
     add_volumes = [
-      "virsh vol-create-as default #{username}-#{guest_name}-vmx-vcp-hdb-18.2R1.9-base.qcow2 196870144",
+      "virsh vol-create-as default #{username}-#{guest_name}-vmx-vcp-hdb-17.4R1.16-base.qcow2 196870144",
       "sleep 1",
-      "virsh vol-upload --pool default #{username}-#{guest_name}-vmx-vcp-hdb-18.2R1.9-base.qcow2 /opt/vagrant/storage/vmx-vcp-hdb-18.2R1.9-base.qcow2",
+      "virsh vol-upload --pool default #{username}-#{guest_name}-vmx-vcp-hdb-17.4R1.16-base.qcow2 /opt/vagrant/storage/vmx-vcp-hdb-17.4R1.16-base.qcow2",
       "sleep 1",
-      "virsh vol-create-as default #{username}-#{guest_name}-vmx-vcp-hdc-18.2R1.9-base.img 16777216",
+      "virsh vol-create-as default #{username}-#{guest_name}-vmx-vcp-hdc-17.4R1.16-base.img 16777216",
       "sleep 1",
-      "virsh vol-upload --pool default #{username}-#{guest_name}-vmx-vcp-hdc-18.2R1.9-base.img /opt/vagrant/storage/vmx-vcp-hdc-18.2R1.9-base.img",
+      "virsh vol-upload --pool default #{username}-#{guest_name}-vmx-vcp-hdc-17.4R1.16-base.img /opt/vagrant/storage/vmx-vcp-hdc-17.4R1.16-base.img",
       "sleep 1"
     ]
     add_volumes.each do |i|
@@ -56,8 +56,8 @@ Vagrant.configure("2") do |config|
     end
 
     delete_volumes = [
-      "virsh vol-delete #{username}-#{guest_name}-vmx-vcp-hdb-18.2R1.9-base.qcow2 default",
-      "virsh vol-delete #{username}-#{guest_name}-vmx-vcp-hdc-18.2R1.9-base.img default"
+      "virsh vol-delete #{username}-#{guest_name}-vmx-vcp-hdb-17.4R1.16-base.qcow2 default",
+      "virsh vol-delete #{username}-#{guest_name}-vmx-vcp-hdc-17.4R1.16-base.img default"
     ]
     delete_volumes.each do |i|
       node.trigger.after :destroy do |trigger|
@@ -81,8 +81,8 @@ Vagrant.configure("2") do |config|
   end
   config.vm.define "R1-vfp" do |node|
     guest_name = "R1"
-    node.vm.box = "juniper/vmx-18.2R1.9-vfp"
-    node.vm.box_version = "18.2R1.9"
+    node.vm.box = "juniper/vmx-17.4R1.16-vfp"
+    node.vm.box_version = "17.4R1.16"
     node.vm.guest = :tinycore
     node.vm.synced_folder ".", "/vagrant", id: "vagrant-root", disabled: true
 
@@ -212,8 +212,8 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "R2-vcp" do |node|
     guest_name = "R2-vcp"
-    node.vm.box = "juniper/vmx-18.2R1.9-vcp"
-    node.vm.box_version = "18.2R1.9"
+    node.vm.box = "juniper/vmx-17.4R1.16-vcp"
+    node.vm.box_version = "17.4R1.16"
     node.vm.guest = :tinycore
     node.vm.synced_folder ".", "/vagrant", id: "vagrant-root", disabled: true
 
@@ -225,17 +225,17 @@ Vagrant.configure("2") do |config|
       domain.memory = 1024
       domain.disk_bus = "ide"
       domain.nic_adapter_count = 11
-      domain.storage :file, :path => "#{username}-#{guest_name}-vmx-vcp-hdb-18.2R1.9-base.qcow2", :size => "196870144", :type => "qcow2", :bus => "ide", :device => "hdb", :allow_existing => true
-      domain.storage :file, :path => "#{username}-#{guest_name}-vmx-vcp-hdc-18.2R1.9-base.img", :size => "16777216", :type => "raw", :bus => "ide", :device => "hdc", :allow_existing => true
+      domain.storage :file, :path => "#{username}-#{guest_name}-vmx-vcp-hdb-17.4R1.16-base.qcow2", :size => "196870144", :type => "qcow2", :bus => "ide", :device => "hdb", :allow_existing => true
+      domain.storage :file, :path => "#{username}-#{guest_name}-vmx-vcp-hdc-17.4R1.16-base.img", :size => "16777216", :type => "raw", :bus => "ide", :device => "hdc", :allow_existing => true
     end
     add_volumes = [
-      "virsh vol-create-as default #{username}-#{guest_name}-vmx-vcp-hdb-18.2R1.9-base.qcow2 196870144",
+      "virsh vol-create-as default #{username}-#{guest_name}-vmx-vcp-hdb-17.4R1.16-base.qcow2 196870144",
       "sleep 1",
-      "virsh vol-upload --pool default #{username}-#{guest_name}-vmx-vcp-hdb-18.2R1.9-base.qcow2 /opt/vagrant/storage/vmx-vcp-hdb-18.2R1.9-base.qcow2",
+      "virsh vol-upload --pool default #{username}-#{guest_name}-vmx-vcp-hdb-17.4R1.16-base.qcow2 /opt/vagrant/storage/vmx-vcp-hdb-17.4R1.16-base.qcow2",
       "sleep 1",
-      "virsh vol-create-as default #{username}-#{guest_name}-vmx-vcp-hdc-18.2R1.9-base.img 16777216",
+      "virsh vol-create-as default #{username}-#{guest_name}-vmx-vcp-hdc-17.4R1.16-base.img 16777216",
       "sleep 1",
-      "virsh vol-upload --pool default #{username}-#{guest_name}-vmx-vcp-hdc-18.2R1.9-base.img /opt/vagrant/storage/vmx-vcp-hdc-18.2R1.9-base.img",
+      "virsh vol-upload --pool default #{username}-#{guest_name}-vmx-vcp-hdc-17.4R1.16-base.img /opt/vagrant/storage/vmx-vcp-hdc-17.4R1.16-base.img",
       "sleep 1"
     ]
     add_volumes.each do |i|
@@ -247,8 +247,8 @@ Vagrant.configure("2") do |config|
     end
 
     delete_volumes = [
-      "virsh vol-delete #{username}-#{guest_name}-vmx-vcp-hdb-18.2R1.9-base.qcow2 default",
-      "virsh vol-delete #{username}-#{guest_name}-vmx-vcp-hdc-18.2R1.9-base.img default"
+      "virsh vol-delete #{username}-#{guest_name}-vmx-vcp-hdb-17.4R1.16-base.qcow2 default",
+      "virsh vol-delete #{username}-#{guest_name}-vmx-vcp-hdc-17.4R1.16-base.img default"
     ]
     delete_volumes.each do |i|
       node.trigger.after :destroy do |trigger|
@@ -272,8 +272,8 @@ Vagrant.configure("2") do |config|
   end
   config.vm.define "R2-vfp" do |node|
     guest_name = "R2"
-    node.vm.box = "juniper/vmx-18.2R1.9-vfp"
-    node.vm.box_version = "18.2R1.9"
+    node.vm.box = "juniper/vmx-17.4R1.16-vfp"
+    node.vm.box_version = "17.4R1.16"
     node.vm.guest = :tinycore
     node.vm.synced_folder ".", "/vagrant", id: "vagrant-root", disabled: true
 
@@ -504,8 +504,8 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "R3-vcp" do |node|
     guest_name = "R3-vcp"
-    node.vm.box = "juniper/vmx-18.2R1.9-vcp"
-    node.vm.box_version = "18.2R1.9"
+    node.vm.box = "juniper/vmx-17.4R1.16-vcp"
+    node.vm.box_version = "17.4R1.16"
     node.vm.guest = :tinycore
     node.vm.synced_folder ".", "/vagrant", id: "vagrant-root", disabled: true
 
@@ -517,17 +517,17 @@ Vagrant.configure("2") do |config|
       domain.memory = 1024
       domain.disk_bus = "ide"
       domain.nic_adapter_count = 11
-      domain.storage :file, :path => "#{username}-#{guest_name}-vmx-vcp-hdb-18.2R1.9-base.qcow2", :size => "196870144", :type => "qcow2", :bus => "ide", :device => "hdb", :allow_existing => true
-      domain.storage :file, :path => "#{username}-#{guest_name}-vmx-vcp-hdc-18.2R1.9-base.img", :size => "16777216", :type => "raw", :bus => "ide", :device => "hdc", :allow_existing => true
+      domain.storage :file, :path => "#{username}-#{guest_name}-vmx-vcp-hdb-17.4R1.16-base.qcow2", :size => "196870144", :type => "qcow2", :bus => "ide", :device => "hdb", :allow_existing => true
+      domain.storage :file, :path => "#{username}-#{guest_name}-vmx-vcp-hdc-17.4R1.16-base.img", :size => "16777216", :type => "raw", :bus => "ide", :device => "hdc", :allow_existing => true
     end
     add_volumes = [
-      "virsh vol-create-as default #{username}-#{guest_name}-vmx-vcp-hdb-18.2R1.9-base.qcow2 196870144",
+      "virsh vol-create-as default #{username}-#{guest_name}-vmx-vcp-hdb-17.4R1.16-base.qcow2 196870144",
       "sleep 1",
-      "virsh vol-upload --pool default #{username}-#{guest_name}-vmx-vcp-hdb-18.2R1.9-base.qcow2 /opt/vagrant/storage/vmx-vcp-hdb-18.2R1.9-base.qcow2",
+      "virsh vol-upload --pool default #{username}-#{guest_name}-vmx-vcp-hdb-17.4R1.16-base.qcow2 /opt/vagrant/storage/vmx-vcp-hdb-17.4R1.16-base.qcow2",
       "sleep 1",
-      "virsh vol-create-as default #{username}-#{guest_name}-vmx-vcp-hdc-18.2R1.9-base.img 16777216",
+      "virsh vol-create-as default #{username}-#{guest_name}-vmx-vcp-hdc-17.4R1.16-base.img 16777216",
       "sleep 1",
-      "virsh vol-upload --pool default #{username}-#{guest_name}-vmx-vcp-hdc-18.2R1.9-base.img /opt/vagrant/storage/vmx-vcp-hdc-18.2R1.9-base.img",
+      "virsh vol-upload --pool default #{username}-#{guest_name}-vmx-vcp-hdc-17.4R1.16-base.img /opt/vagrant/storage/vmx-vcp-hdc-17.4R1.16-base.img",
       "sleep 1"
     ]
     add_volumes.each do |i|
@@ -539,8 +539,8 @@ Vagrant.configure("2") do |config|
     end
 
     delete_volumes = [
-      "virsh vol-delete #{username}-#{guest_name}-vmx-vcp-hdb-18.2R1.9-base.qcow2 default",
-      "virsh vol-delete #{username}-#{guest_name}-vmx-vcp-hdc-18.2R1.9-base.img default"
+      "virsh vol-delete #{username}-#{guest_name}-vmx-vcp-hdb-17.4R1.16-base.qcow2 default",
+      "virsh vol-delete #{username}-#{guest_name}-vmx-vcp-hdc-17.4R1.16-base.img default"
     ]
     delete_volumes.each do |i|
       node.trigger.after :destroy do |trigger|
@@ -564,8 +564,8 @@ Vagrant.configure("2") do |config|
   end
   config.vm.define "R3-vfp" do |node|
     guest_name = "R3"
-    node.vm.box = "juniper/vmx-18.2R1.9-vfp"
-    node.vm.box_version = "18.2R1.9"
+    node.vm.box = "juniper/vmx-17.4R1.16-vfp"
+    node.vm.box_version = "17.4R1.16"
     node.vm.guest = :tinycore
     node.vm.synced_folder ".", "/vagrant", id: "vagrant-root", disabled: true
 
@@ -681,8 +681,8 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "R4-vcp" do |node|
     guest_name = "R4-vcp"
-    node.vm.box = "juniper/vmx-18.2R1.9-vcp"
-    node.vm.box_version = "18.2R1.9"
+    node.vm.box = "juniper/vmx-17.4R1.16-vcp"
+    node.vm.box_version = "17.4R1.16"
     node.vm.guest = :tinycore
     node.vm.synced_folder ".", "/vagrant", id: "vagrant-root", disabled: true
 
@@ -694,17 +694,17 @@ Vagrant.configure("2") do |config|
       domain.memory = 1024
       domain.disk_bus = "ide"
       domain.nic_adapter_count = 11
-      domain.storage :file, :path => "#{username}-#{guest_name}-vmx-vcp-hdb-18.2R1.9-base.qcow2", :size => "196870144", :type => "qcow2", :bus => "ide", :device => "hdb", :allow_existing => true
-      domain.storage :file, :path => "#{username}-#{guest_name}-vmx-vcp-hdc-18.2R1.9-base.img", :size => "16777216", :type => "raw", :bus => "ide", :device => "hdc", :allow_existing => true
+      domain.storage :file, :path => "#{username}-#{guest_name}-vmx-vcp-hdb-17.4R1.16-base.qcow2", :size => "196870144", :type => "qcow2", :bus => "ide", :device => "hdb", :allow_existing => true
+      domain.storage :file, :path => "#{username}-#{guest_name}-vmx-vcp-hdc-17.4R1.16-base.img", :size => "16777216", :type => "raw", :bus => "ide", :device => "hdc", :allow_existing => true
     end
     add_volumes = [
-      "virsh vol-create-as default #{username}-#{guest_name}-vmx-vcp-hdb-18.2R1.9-base.qcow2 196870144",
+      "virsh vol-create-as default #{username}-#{guest_name}-vmx-vcp-hdb-17.4R1.16-base.qcow2 196870144",
       "sleep 1",
-      "virsh vol-upload --pool default #{username}-#{guest_name}-vmx-vcp-hdb-18.2R1.9-base.qcow2 /opt/vagrant/storage/vmx-vcp-hdb-18.2R1.9-base.qcow2",
+      "virsh vol-upload --pool default #{username}-#{guest_name}-vmx-vcp-hdb-17.4R1.16-base.qcow2 /opt/vagrant/storage/vmx-vcp-hdb-17.4R1.16-base.qcow2",
       "sleep 1",
-      "virsh vol-create-as default #{username}-#{guest_name}-vmx-vcp-hdc-18.2R1.9-base.img 16777216",
+      "virsh vol-create-as default #{username}-#{guest_name}-vmx-vcp-hdc-17.4R1.16-base.img 16777216",
       "sleep 1",
-      "virsh vol-upload --pool default #{username}-#{guest_name}-vmx-vcp-hdc-18.2R1.9-base.img /opt/vagrant/storage/vmx-vcp-hdc-18.2R1.9-base.img",
+      "virsh vol-upload --pool default #{username}-#{guest_name}-vmx-vcp-hdc-17.4R1.16-base.img /opt/vagrant/storage/vmx-vcp-hdc-17.4R1.16-base.img",
       "sleep 1"
     ]
     add_volumes.each do |i|
@@ -716,8 +716,8 @@ Vagrant.configure("2") do |config|
     end
 
   delete_volumes = [
-    "virsh vol-delete #{username}-#{guest_name}-vmx-vcp-hdb-18.2R1.9-base.qcow2 default",
-    "virsh vol-delete #{username}-#{guest_name}-vmx-vcp-hdc-18.2R1.9-base.img default"
+    "virsh vol-delete #{username}-#{guest_name}-vmx-vcp-hdb-17.4R1.16-base.qcow2 default",
+    "virsh vol-delete #{username}-#{guest_name}-vmx-vcp-hdc-17.4R1.16-base.img default"
   ]
   delete_volumes.each do |i|
     node.trigger.after :destroy do |trigger|
@@ -743,8 +743,8 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "R4-vfp" do |node|
     guest_name = "R4-vfp"
-    node.vm.box = "juniper/vmx-18.2R1.9-vfp"
-    node.vm.box_version = "18.2R1.9"
+    node.vm.box = "juniper/vmx-17.4R1.16-vfp"
+    node.vm.box_version = "17.4R1.16"
     node.vm.guest = :tinycore
     node.vm.synced_folder ".", "/vagrant", id: "vagrant-root", disabled: true
 
@@ -862,8 +862,8 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "R5-vcp" do |node|
     guest_name = "R5-vcp"
-    node.vm.box = "juniper/vmx-18.2R1.9-vcp"
-    node.vm.box_version = "18.2R1.9"
+    node.vm.box = "juniper/vmx-17.4R1.16-vcp"
+    node.vm.box_version = "17.4R1.16"
     node.vm.guest = :tinycore
     node.vm.synced_folder ".", "/vagrant", id: "vagrant-root", disabled: true
 
@@ -875,17 +875,17 @@ Vagrant.configure("2") do |config|
       domain.memory = 1024
       domain.disk_bus = "ide"
       domain.nic_adapter_count = 11
-      domain.storage :file, :path => "#{username}-#{guest_name}-vmx-vcp-hdb-18.2R1.9-base.qcow2", :size => "196870144", :type => "qcow2", :bus => "ide", :device => "hdb", :allow_existing => true
-      domain.storage :file, :path => "#{username}-#{guest_name}-vmx-vcp-hdc-18.2R1.9-base.img", :size => "16777216", :type => "raw", :bus => "ide", :device => "hdc", :allow_existing => true
+      domain.storage :file, :path => "#{username}-#{guest_name}-vmx-vcp-hdb-17.4R1.16-base.qcow2", :size => "196870144", :type => "qcow2", :bus => "ide", :device => "hdb", :allow_existing => true
+      domain.storage :file, :path => "#{username}-#{guest_name}-vmx-vcp-hdc-17.4R1.16-base.img", :size => "16777216", :type => "raw", :bus => "ide", :device => "hdc", :allow_existing => true
     end
     add_volumes = [
-      "virsh vol-create-as default #{username}-#{guest_name}-vmx-vcp-hdb-18.2R1.9-base.qcow2 196870144",
+      "virsh vol-create-as default #{username}-#{guest_name}-vmx-vcp-hdb-17.4R1.16-base.qcow2 196870144",
       "sleep 1",
-      "virsh vol-upload --pool default #{username}-#{guest_name}-vmx-vcp-hdb-18.2R1.9-base.qcow2 /opt/vagrant/storage/vmx-vcp-hdb-18.2R1.9-base.qcow2",
+      "virsh vol-upload --pool default #{username}-#{guest_name}-vmx-vcp-hdb-17.4R1.16-base.qcow2 /opt/vagrant/storage/vmx-vcp-hdb-17.4R1.16-base.qcow2",
       "sleep 1",
-      "virsh vol-create-as default #{username}-#{guest_name}-vmx-vcp-hdc-18.2R1.9-base.img 16777216",
+      "virsh vol-create-as default #{username}-#{guest_name}-vmx-vcp-hdc-17.4R1.16-base.img 16777216",
       "sleep 1",
-      "virsh vol-upload --pool default #{username}-#{guest_name}-vmx-vcp-hdc-18.2R1.9-base.img /opt/vagrant/storage/vmx-vcp-hdc-18.2R1.9-base.img",
+      "virsh vol-upload --pool default #{username}-#{guest_name}-vmx-vcp-hdc-17.4R1.16-base.img /opt/vagrant/storage/vmx-vcp-hdc-17.4R1.16-base.img",
       "sleep 1"
     ]
     add_volumes.each do |i|
@@ -897,8 +897,8 @@ Vagrant.configure("2") do |config|
     end
 
     delete_volumes = [
-      "virsh vol-delete #{username}-#{guest_name}-vmx-vcp-hdb-18.2R1.9-base.qcow2 default",
-      "virsh vol-delete #{username}-#{guest_name}-vmx-vcp-hdc-18.2R1.9-base.img default"
+      "virsh vol-delete #{username}-#{guest_name}-vmx-vcp-hdb-17.4R1.16-base.qcow2 default",
+      "virsh vol-delete #{username}-#{guest_name}-vmx-vcp-hdc-17.4R1.16-base.img default"
     ]
     delete_volumes.each do |i|
       node.trigger.after :destroy do |trigger|
@@ -923,8 +923,8 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "R5-vfp" do |node|
     guest_name = "R5-vfp"
-    node.vm.box = "juniper/vmx-18.2R1.9-vfp"
-    node.vm.box_version = "18.2R1.9"
+    node.vm.box = "juniper/vmx-17.4R1.16-vfp"
+    node.vm.box_version = "17.4R1.16"
     node.vm.guest = :tinycore
     node.vm.synced_folder ".", "/vagrant", id: "vagrant-root", disabled: true
 
@@ -1042,8 +1042,8 @@ Vagrant.configure("2") do |config|
 
     config.vm.define "R6-vcp" do |node|
     guest_name = "R6-vcp"
-    node.vm.box = "juniper/vmx-18.2R1.9-vcp"
-    node.vm.box_version = "18.2R1.9"
+    node.vm.box = "juniper/vmx-17.4R1.16-vcp"
+    node.vm.box_version = "17.4R1.16"
     node.vm.guest = :tinycore
     node.vm.synced_folder ".", "/vagrant", id: "vagrant-root", disabled: true
 
@@ -1055,17 +1055,17 @@ Vagrant.configure("2") do |config|
       domain.memory = 1024
       domain.disk_bus = "ide"
       domain.nic_adapter_count = 11
-      domain.storage :file, :path => "#{username}-#{guest_name}-vmx-vcp-hdb-18.2R1.9-base.qcow2", :size => "196870144", :type => "qcow2", :bus => "ide", :device => "hdb", :allow_existing => true
-      domain.storage :file, :path => "#{username}-#{guest_name}-vmx-vcp-hdc-18.2R1.9-base.img", :size => "16777216", :type => "raw", :bus => "ide", :device => "hdc", :allow_existing => true
+      domain.storage :file, :path => "#{username}-#{guest_name}-vmx-vcp-hdb-17.4R1.16-base.qcow2", :size => "196870144", :type => "qcow2", :bus => "ide", :device => "hdb", :allow_existing => true
+      domain.storage :file, :path => "#{username}-#{guest_name}-vmx-vcp-hdc-17.4R1.16-base.img", :size => "16777216", :type => "raw", :bus => "ide", :device => "hdc", :allow_existing => true
     end
     add_volumes = [
-      "virsh vol-create-as default #{username}-#{guest_name}-vmx-vcp-hdb-18.2R1.9-base.qcow2 196870144",
+      "virsh vol-create-as default #{username}-#{guest_name}-vmx-vcp-hdb-17.4R1.16-base.qcow2 196870144",
       "sleep 1",
-      "virsh vol-upload --pool default #{username}-#{guest_name}-vmx-vcp-hdb-18.2R1.9-base.qcow2 /opt/vagrant/storage/vmx-vcp-hdb-18.2R1.9-base.qcow2",
+      "virsh vol-upload --pool default #{username}-#{guest_name}-vmx-vcp-hdb-17.4R1.16-base.qcow2 /opt/vagrant/storage/vmx-vcp-hdb-17.4R1.16-base.qcow2",
       "sleep 1",
-      "virsh vol-create-as default #{username}-#{guest_name}-vmx-vcp-hdc-18.2R1.9-base.img 16777216",
+      "virsh vol-create-as default #{username}-#{guest_name}-vmx-vcp-hdc-17.4R1.16-base.img 16777216",
       "sleep 1",
-      "virsh vol-upload --pool default #{username}-#{guest_name}-vmx-vcp-hdc-18.2R1.9-base.img /opt/vagrant/storage/vmx-vcp-hdc-18.2R1.9-base.img",
+      "virsh vol-upload --pool default #{username}-#{guest_name}-vmx-vcp-hdc-17.4R1.16-base.img /opt/vagrant/storage/vmx-vcp-hdc-17.4R1.16-base.img",
       "sleep 1"
     ]
     add_volumes.each do |i|
@@ -1077,8 +1077,8 @@ Vagrant.configure("2") do |config|
     end
 
     delete_volumes = [
-      "virsh vol-delete #{username}-#{guest_name}-vmx-vcp-hdb-18.2R1.9-base.qcow2 default",
-      "virsh vol-delete #{username}-#{guest_name}-vmx-vcp-hdc-18.2R1.9-base.img default"
+      "virsh vol-delete #{username}-#{guest_name}-vmx-vcp-hdb-17.4R1.16-base.qcow2 default",
+      "virsh vol-delete #{username}-#{guest_name}-vmx-vcp-hdc-17.4R1.16-base.img default"
     ]
     delete_volumes.each do |i|
       node.trigger.after :destroy do |trigger|
@@ -1103,8 +1103,8 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "R6-vfp" do |node|
     guest_name = "R6-vfp"
-    node.vm.box = "juniper/vmx-18.2R1.9-vfp"
-    node.vm.box_version = "18.2R1.9"
+    node.vm.box = "juniper/vmx-17.4R1.16-vfp"
+    node.vm.box_version = "17.4R1.16"
     node.vm.guest = :tinycore
     node.vm.synced_folder ".", "/vagrant", id: "vagrant-root", disabled: true
 
@@ -1222,8 +1222,8 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "R7-vcp" do |node|
     guest_name = "R7-vcp"
-    node.vm.box = "juniper/vmx-18.2R1.9-vcp"
-    node.vm.box_version = "18.2R1.9"
+    node.vm.box = "juniper/vmx-17.4R1.16-vcp"
+    node.vm.box_version = "17.4R1.16"
     node.vm.guest = :tinycore
     node.vm.synced_folder ".", "/vagrant", id: "vagrant-root", disabled: true
 
@@ -1235,17 +1235,17 @@ Vagrant.configure("2") do |config|
       domain.memory = 1024
       domain.disk_bus = "ide"
       domain.nic_adapter_count = 11
-      domain.storage :file, :path => "#{username}-#{guest_name}-vmx-vcp-hdb-18.2R1.9-base.qcow2", :size => "196870144", :type => "qcow2", :bus => "ide", :device => "hdb", :allow_existing => true
-      domain.storage :file, :path => "#{username}-#{guest_name}-vmx-vcp-hdc-18.2R1.9-base.img", :size => "16777216", :type => "raw", :bus => "ide", :device => "hdc", :allow_existing => true
+      domain.storage :file, :path => "#{username}-#{guest_name}-vmx-vcp-hdb-17.4R1.16-base.qcow2", :size => "196870144", :type => "qcow2", :bus => "ide", :device => "hdb", :allow_existing => true
+      domain.storage :file, :path => "#{username}-#{guest_name}-vmx-vcp-hdc-17.4R1.16-base.img", :size => "16777216", :type => "raw", :bus => "ide", :device => "hdc", :allow_existing => true
     end
     add_volumes = [
-      "virsh vol-create-as default #{username}-#{guest_name}-vmx-vcp-hdb-18.2R1.9-base.qcow2 196870144",
+      "virsh vol-create-as default #{username}-#{guest_name}-vmx-vcp-hdb-17.4R1.16-base.qcow2 196870144",
       "sleep 1",
-      "virsh vol-upload --pool default #{username}-#{guest_name}-vmx-vcp-hdb-18.2R1.9-base.qcow2 /opt/vagrant/storage/vmx-vcp-hdb-18.2R1.9-base.qcow2",
+      "virsh vol-upload --pool default #{username}-#{guest_name}-vmx-vcp-hdb-17.4R1.16-base.qcow2 /opt/vagrant/storage/vmx-vcp-hdb-17.4R1.16-base.qcow2",
       "sleep 1",
-      "virsh vol-create-as default #{username}-#{guest_name}-vmx-vcp-hdc-18.2R1.9-base.img 16777216",
+      "virsh vol-create-as default #{username}-#{guest_name}-vmx-vcp-hdc-17.4R1.16-base.img 16777216",
       "sleep 1",
-      "virsh vol-upload --pool default #{username}-#{guest_name}-vmx-vcp-hdc-18.2R1.9-base.img /opt/vagrant/storage/vmx-vcp-hdc-18.2R1.9-base.img",
+      "virsh vol-upload --pool default #{username}-#{guest_name}-vmx-vcp-hdc-17.4R1.16-base.img /opt/vagrant/storage/vmx-vcp-hdc-17.4R1.16-base.img",
       "sleep 1"
     ]
     add_volumes.each do |i|
@@ -1257,8 +1257,8 @@ Vagrant.configure("2") do |config|
     end
 
     delete_volumes = [
-      "virsh vol-delete #{username}-#{guest_name}-vmx-vcp-hdb-18.2R1.9-base.qcow2 default",
-      "virsh vol-delete #{username}-#{guest_name}-vmx-vcp-hdc-18.2R1.9-base.img default"
+      "virsh vol-delete #{username}-#{guest_name}-vmx-vcp-hdb-17.4R1.16-base.qcow2 default",
+      "virsh vol-delete #{username}-#{guest_name}-vmx-vcp-hdc-17.4R1.16-base.img default"
     ]
     delete_volumes.each do |i|
       node.trigger.after :destroy do |trigger|
@@ -1283,8 +1283,8 @@ Vagrant.configure("2") do |config|
 
 config.vm.define "R7-vfp" do |node|
   guest_name = "R7-vfp"
-  node.vm.box = "juniper/vmx-18.2R1.9-vfp"
-  node.vm.box_version = "18.2R1.9"
+  node.vm.box = "juniper/vmx-17.4R1.16-vfp"
+  node.vm.box_version = "17.4R1.16"
   node.vm.guest = :tinycore
   node.vm.synced_folder ".", "/vagrant", id: "vagrant-root", disabled: true
 
@@ -1402,8 +1402,8 @@ config.vm.define "R7-vfp" do |node|
 
   config.vm.define "R8-vcp" do |node|
     guest_name = "R8-vcp"
-    node.vm.box = "juniper/vmx-18.2R1.9-vcp"
-    node.vm.box_version = "18.2R1.9"
+    node.vm.box = "juniper/vmx-17.4R1.16-vcp"
+    node.vm.box_version = "17.4R1.16"
     node.vm.guest = :tinycore
     node.vm.synced_folder ".", "/vagrant", id: "vagrant-root", disabled: true
 
@@ -1415,17 +1415,17 @@ config.vm.define "R7-vfp" do |node|
       domain.memory = 1024
       domain.disk_bus = "ide"
       domain.nic_adapter_count = 11
-      domain.storage :file, :path => "#{username}-#{guest_name}-vmx-vcp-hdb-18.2R1.9-base.qcow2", :size => "196870144", :type => "qcow2", :bus => "ide", :device => "hdb", :allow_existing => true
-      domain.storage :file, :path => "#{username}-#{guest_name}-vmx-vcp-hdc-18.2R1.9-base.img", :size => "16777216", :type => "raw", :bus => "ide", :device => "hdc", :allow_existing => true
+      domain.storage :file, :path => "#{username}-#{guest_name}-vmx-vcp-hdb-17.4R1.16-base.qcow2", :size => "196870144", :type => "qcow2", :bus => "ide", :device => "hdb", :allow_existing => true
+      domain.storage :file, :path => "#{username}-#{guest_name}-vmx-vcp-hdc-17.4R1.16-base.img", :size => "16777216", :type => "raw", :bus => "ide", :device => "hdc", :allow_existing => true
     end
     add_volumes = [
-      "virsh vol-create-as default #{username}-#{guest_name}-vmx-vcp-hdb-18.2R1.9-base.qcow2 196870144",
+      "virsh vol-create-as default #{username}-#{guest_name}-vmx-vcp-hdb-17.4R1.16-base.qcow2 196870144",
       "sleep 1",
-      "virsh vol-upload --pool default #{username}-#{guest_name}-vmx-vcp-hdb-18.2R1.9-base.qcow2 /opt/vagrant/storage/vmx-vcp-hdb-18.2R1.9-base.qcow2",
+      "virsh vol-upload --pool default #{username}-#{guest_name}-vmx-vcp-hdb-17.4R1.16-base.qcow2 /opt/vagrant/storage/vmx-vcp-hdb-17.4R1.16-base.qcow2",
       "sleep 1",
-      "virsh vol-create-as default #{username}-#{guest_name}-vmx-vcp-hdc-18.2R1.9-base.img 16777216",
+      "virsh vol-create-as default #{username}-#{guest_name}-vmx-vcp-hdc-17.4R1.16-base.img 16777216",
       "sleep 1",
-      "virsh vol-upload --pool default #{username}-#{guest_name}-vmx-vcp-hdc-18.2R1.9-base.img /opt/vagrant/storage/vmx-vcp-hdc-18.2R1.9-base.img",
+      "virsh vol-upload --pool default #{username}-#{guest_name}-vmx-vcp-hdc-17.4R1.16-base.img /opt/vagrant/storage/vmx-vcp-hdc-17.4R1.16-base.img",
       "sleep 1"
     ]
     add_volumes.each do |i|
@@ -1437,8 +1437,8 @@ config.vm.define "R7-vfp" do |node|
     end
 
     delete_volumes = [
-      "virsh vol-delete #{username}-#{guest_name}-vmx-vcp-hdb-18.2R1.9-base.qcow2 default",
-      "virsh vol-delete #{username}-#{guest_name}-vmx-vcp-hdc-18.2R1.9-base.img default"
+      "virsh vol-delete #{username}-#{guest_name}-vmx-vcp-hdb-17.4R1.16-base.qcow2 default",
+      "virsh vol-delete #{username}-#{guest_name}-vmx-vcp-hdc-17.4R1.16-base.img default"
     ]
     delete_volumes.each do |i|
       node.trigger.after :destroy do |trigger|
@@ -1463,8 +1463,8 @@ config.vm.define "R7-vfp" do |node|
 
 config.vm.define "R8-vfp" do |node|
   guest_name = "R8-vfp"
-  node.vm.box = "juniper/vmx-18.2R1.9-vfp"
-  node.vm.box_version = "18.2R1.9"
+  node.vm.box = "juniper/vmx-17.4R1.16-vfp"
+  node.vm.box_version = "17.4R1.16"
   node.vm.guest = :tinycore
   node.vm.synced_folder ".", "/vagrant", id: "vagrant-root", disabled: true
 
@@ -1582,8 +1582,8 @@ config.vm.define "R8-vfp" do |node|
 
           config.vm.define "DC1-vcp" do |node|
             guest_name = "DC1-vcp"
-            node.vm.box = "juniper/vmx-18.2R1.9-vcp"
-            node.vm.box_version = "18.2R1.9"
+            node.vm.box = "juniper/vmx-17.4R1.16-vcp"
+            node.vm.box_version = "17.4R1.16"
             node.vm.guest = :tinycore
             node.vm.synced_folder ".", "/vagrant", id: "vagrant-root", disabled: true
 
@@ -1595,17 +1595,17 @@ config.vm.define "R8-vfp" do |node|
               domain.memory = 1024
               domain.disk_bus = "ide"
               domain.nic_adapter_count = 11
-              domain.storage :file, :path => "#{username}-#{guest_name}-vmx-vcp-hdb-18.2R1.9-base.qcow2", :size => "196870144", :type => "qcow2", :bus => "ide", :device => "hdb", :allow_existing => true
-              domain.storage :file, :path => "#{username}-#{guest_name}-vmx-vcp-hdc-18.2R1.9-base.img", :size => "16777216", :type => "raw", :bus => "ide", :device => "hdc", :allow_existing => true
+              domain.storage :file, :path => "#{username}-#{guest_name}-vmx-vcp-hdb-17.4R1.16-base.qcow2", :size => "196870144", :type => "qcow2", :bus => "ide", :device => "hdb", :allow_existing => true
+              domain.storage :file, :path => "#{username}-#{guest_name}-vmx-vcp-hdc-17.4R1.16-base.img", :size => "16777216", :type => "raw", :bus => "ide", :device => "hdc", :allow_existing => true
             end
             add_volumes = [
-              "virsh vol-create-as default #{username}-#{guest_name}-vmx-vcp-hdb-18.2R1.9-base.qcow2 196870144",
+              "virsh vol-create-as default #{username}-#{guest_name}-vmx-vcp-hdb-17.4R1.16-base.qcow2 196870144",
               "sleep 1",
-              "virsh vol-upload --pool default #{username}-#{guest_name}-vmx-vcp-hdb-18.2R1.9-base.qcow2 /opt/vagrant/storage/vmx-vcp-hdb-18.2R1.9-base.qcow2",
+              "virsh vol-upload --pool default #{username}-#{guest_name}-vmx-vcp-hdb-17.4R1.16-base.qcow2 /opt/vagrant/storage/vmx-vcp-hdb-17.4R1.16-base.qcow2",
               "sleep 1",
-              "virsh vol-create-as default #{username}-#{guest_name}-vmx-vcp-hdc-18.2R1.9-base.img 16777216",
+              "virsh vol-create-as default #{username}-#{guest_name}-vmx-vcp-hdc-17.4R1.16-base.img 16777216",
               "sleep 1",
-              "virsh vol-upload --pool default #{username}-#{guest_name}-vmx-vcp-hdc-18.2R1.9-base.img /opt/vagrant/storage/vmx-vcp-hdc-18.2R1.9-base.img",
+              "virsh vol-upload --pool default #{username}-#{guest_name}-vmx-vcp-hdc-17.4R1.16-base.img /opt/vagrant/storage/vmx-vcp-hdc-17.4R1.16-base.img",
               "sleep 1"
             ]
             add_volumes.each do |i|
@@ -1617,8 +1617,8 @@ config.vm.define "R8-vfp" do |node|
             end
 
             delete_volumes = [
-              "virsh vol-delete #{username}-#{guest_name}-vmx-vcp-hdb-18.2R1.9-base.qcow2 default",
-              "virsh vol-delete #{username}-#{guest_name}-vmx-vcp-hdc-18.2R1.9-base.img default"
+              "virsh vol-delete #{username}-#{guest_name}-vmx-vcp-hdb-17.4R1.16-base.qcow2 default",
+              "virsh vol-delete #{username}-#{guest_name}-vmx-vcp-hdc-17.4R1.16-base.img default"
             ]
             delete_volumes.each do |i|
               node.trigger.after :destroy do |trigger|
@@ -1643,8 +1643,8 @@ config.vm.define "R8-vfp" do |node|
 
           config.vm.define "DC1-vfp" do |node|
             guest_name = "DC1-vfp"
-            node.vm.box = "juniper/vmx-18.2R1.9-vfp"
-            node.vm.box_version = "18.2R1.9"
+            node.vm.box = "juniper/vmx-17.4R1.16-vfp"
+            node.vm.box_version = "17.4R1.16"
             node.vm.guest = :tinycore
             node.vm.synced_folder ".", "/vagrant", id: "vagrant-root", disabled: true
 
@@ -1762,8 +1762,8 @@ config.vm.define "R8-vfp" do |node|
 
   config.vm.define "P1-vcp" do |node|
     guest_name = "P1-vcp"
-    node.vm.box = "juniper/vmx-18.2R1.9-vcp"
-    node.vm.box_version = "18.2R1.9"
+    node.vm.box = "juniper/vmx-17.4R1.16-vcp"
+    node.vm.box_version = "17.4R1.16"
     node.vm.guest = :tinycore
     node.vm.synced_folder ".", "/vagrant", id: "vagrant-root", disabled: true
 
@@ -1775,17 +1775,17 @@ config.vm.define "R8-vfp" do |node|
       domain.memory = 1024
       domain.disk_bus = "ide"
       domain.nic_adapter_count = 11
-      domain.storage :file, :path => "#{username}-#{guest_name}-vmx-vcp-hdb-18.2R1.9-base.qcow2", :size => "196870144", :type => "qcow2", :bus => "ide", :device => "hdb", :allow_existing => true
-      domain.storage :file, :path => "#{username}-#{guest_name}-vmx-vcp-hdc-18.2R1.9-base.img", :size => "16777216", :type => "raw", :bus => "ide", :device => "hdc", :allow_existing => true
+      domain.storage :file, :path => "#{username}-#{guest_name}-vmx-vcp-hdb-17.4R1.16-base.qcow2", :size => "196870144", :type => "qcow2", :bus => "ide", :device => "hdb", :allow_existing => true
+      domain.storage :file, :path => "#{username}-#{guest_name}-vmx-vcp-hdc-17.4R1.16-base.img", :size => "16777216", :type => "raw", :bus => "ide", :device => "hdc", :allow_existing => true
     end
     add_volumes = [
-      "virsh vol-create-as default #{username}-#{guest_name}-vmx-vcp-hdb-18.2R1.9-base.qcow2 196870144",
+      "virsh vol-create-as default #{username}-#{guest_name}-vmx-vcp-hdb-17.4R1.16-base.qcow2 196870144",
       "sleep 1",
-      "virsh vol-upload --pool default #{username}-#{guest_name}-vmx-vcp-hdb-18.2R1.9-base.qcow2 /opt/vagrant/storage/vmx-vcp-hdb-18.2R1.9-base.qcow2",
+      "virsh vol-upload --pool default #{username}-#{guest_name}-vmx-vcp-hdb-17.4R1.16-base.qcow2 /opt/vagrant/storage/vmx-vcp-hdb-17.4R1.16-base.qcow2",
       "sleep 1",
-      "virsh vol-create-as default #{username}-#{guest_name}-vmx-vcp-hdc-18.2R1.9-base.img 16777216",
+      "virsh vol-create-as default #{username}-#{guest_name}-vmx-vcp-hdc-17.4R1.16-base.img 16777216",
       "sleep 1",
-      "virsh vol-upload --pool default #{username}-#{guest_name}-vmx-vcp-hdc-18.2R1.9-base.img /opt/vagrant/storage/vmx-vcp-hdc-18.2R1.9-base.img",
+      "virsh vol-upload --pool default #{username}-#{guest_name}-vmx-vcp-hdc-17.4R1.16-base.img /opt/vagrant/storage/vmx-vcp-hdc-17.4R1.16-base.img",
       "sleep 1"
     ]
     add_volumes.each do |i|
@@ -1797,8 +1797,8 @@ config.vm.define "R8-vfp" do |node|
     end
 
     delete_volumes = [
-      "virsh vol-delete #{username}-#{guest_name}-vmx-vcp-hdb-18.2R1.9-base.qcow2 default",
-      "virsh vol-delete #{username}-#{guest_name}-vmx-vcp-hdc-18.2R1.9-base.img default"
+      "virsh vol-delete #{username}-#{guest_name}-vmx-vcp-hdb-17.4R1.16-base.qcow2 default",
+      "virsh vol-delete #{username}-#{guest_name}-vmx-vcp-hdc-17.4R1.16-base.img default"
     ]
     delete_volumes.each do |i|
       node.trigger.after :destroy do |trigger|
@@ -1822,8 +1822,8 @@ config.vm.define "R8-vfp" do |node|
   end
   config.vm.define "P1-vfp" do |node|
     guest_name = "P1"
-    node.vm.box = "juniper/vmx-18.2R1.9-vfp"
-    node.vm.box_version = "18.2R1.9"
+    node.vm.box = "juniper/vmx-17.4R1.16-vfp"
+    node.vm.box_version = "17.4R1.16"
     node.vm.guest = :tinycore
     node.vm.synced_folder ".", "/vagrant", id: "vagrant-root", disabled: true
 
