@@ -21,7 +21,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "R1-vcp" do |node|
     guest_name = "R1-vcp"
-    node.vm.box = "juniper/vmx-18.2R1.9-vcp"
+    node.vm.box = "juniper/vmx-vcp"
     node.vm.box_version = "18.2R1.9"
     node.vm.guest = :tinycore
     node.vm.synced_folder ".", "/vagrant", id: "vagrant-root", disabled: true
@@ -81,7 +81,7 @@ Vagrant.configure("2") do |config|
   end
   config.vm.define "R1-vfp" do |node|
     guest_name = "R1"
-    node.vm.box = "juniper/vmx-18.2R1.9-vfp"
+    node.vm.box = "juniper/vmx-vfp"
     node.vm.box_version = "18.2R1.9"
     node.vm.guest = :tinycore
     node.vm.synced_folder ".", "/vagrant", id: "vagrant-root", disabled: true
@@ -212,7 +212,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "R2-vcp" do |node|
     guest_name = "R2-vcp"
-    node.vm.box = "juniper/vmx-18.2R1.9-vcp"
+    node.vm.box = "juniper/vmx-vcp"
     node.vm.box_version = "18.2R1.9"
     node.vm.guest = :tinycore
     node.vm.synced_folder ".", "/vagrant", id: "vagrant-root", disabled: true
@@ -272,7 +272,7 @@ Vagrant.configure("2") do |config|
   end
   config.vm.define "R2-vfp" do |node|
     guest_name = "R2"
-    node.vm.box = "juniper/vmx-18.2R1.9-vfp"
+    node.vm.box = "juniper/vmx-vfp"
     node.vm.box_version = "18.2R1.9"
     node.vm.guest = :tinycore
     node.vm.synced_folder ".", "/vagrant", id: "vagrant-root", disabled: true
@@ -504,7 +504,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "R3-vcp" do |node|
     guest_name = "R3-vcp"
-    node.vm.box = "juniper/vmx-18.2R1.9-vcp"
+    node.vm.box = "juniper/vmx-vcp"
     node.vm.box_version = "18.2R1.9"
     node.vm.guest = :tinycore
     node.vm.synced_folder ".", "/vagrant", id: "vagrant-root", disabled: true
@@ -564,7 +564,7 @@ Vagrant.configure("2") do |config|
   end
   config.vm.define "R3-vfp" do |node|
     guest_name = "R3"
-    node.vm.box = "juniper/vmx-18.2R1.9-vfp"
+    node.vm.box = "juniper/vmx-vfp"
     node.vm.box_version = "18.2R1.9"
     node.vm.guest = :tinycore
     node.vm.synced_folder ".", "/vagrant", id: "vagrant-root", disabled: true
@@ -681,7 +681,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "R4-vcp" do |node|
     guest_name = "R4-vcp"
-    node.vm.box = "juniper/vmx-18.2R1.9-vcp"
+    node.vm.box = "juniper/vmx-vcp"
     node.vm.box_version = "18.2R1.9"
     node.vm.guest = :tinycore
     node.vm.synced_folder ".", "/vagrant", id: "vagrant-root", disabled: true
@@ -743,7 +743,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "R4-vfp" do |node|
     guest_name = "R4-vfp"
-    node.vm.box = "juniper/vmx-18.2R1.9-vfp"
+    node.vm.box = "juniper/vmx-vfp"
     node.vm.box_version = "18.2R1.9"
     node.vm.guest = :tinycore
     node.vm.synced_folder ".", "/vagrant", id: "vagrant-root", disabled: true
@@ -862,7 +862,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "R5-vcp" do |node|
     guest_name = "R5-vcp"
-    node.vm.box = "juniper/vmx-18.2R1.9-vcp"
+    node.vm.box = "juniper/vmx-vcp"
     node.vm.box_version = "18.2R1.9"
     node.vm.guest = :tinycore
     node.vm.synced_folder ".", "/vagrant", id: "vagrant-root", disabled: true
@@ -923,7 +923,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "R5-vfp" do |node|
     guest_name = "R5-vfp"
-    node.vm.box = "juniper/vmx-18.2R1.9-vfp"
+    node.vm.box = "juniper/vmx-vfp"
     node.vm.box_version = "18.2R1.9"
     node.vm.guest = :tinycore
     node.vm.synced_folder ".", "/vagrant", id: "vagrant-root", disabled: true
@@ -1042,7 +1042,7 @@ Vagrant.configure("2") do |config|
 
     config.vm.define "R6-vcp" do |node|
     guest_name = "R6-vcp"
-    node.vm.box = "juniper/vmx-18.2R1.9-vcp"
+    node.vm.box = "juniper/vmx-vcp"
     node.vm.box_version = "18.2R1.9"
     node.vm.guest = :tinycore
     node.vm.synced_folder ".", "/vagrant", id: "vagrant-root", disabled: true
@@ -1103,7 +1103,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "R6-vfp" do |node|
     guest_name = "R6-vfp"
-    node.vm.box = "juniper/vmx-18.2R1.9-vfp"
+    node.vm.box = "juniper/vmx-vfp"
     node.vm.box_version = "18.2R1.9"
     node.vm.guest = :tinycore
     node.vm.synced_folder ".", "/vagrant", id: "vagrant-root", disabled: true
@@ -1222,7 +1222,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "R7-vcp" do |node|
     guest_name = "R7-vcp"
-    node.vm.box = "juniper/vmx-18.2R1.9-vcp"
+    node.vm.box = "juniper/vmx-vcp"
     node.vm.box_version = "18.2R1.9"
     node.vm.guest = :tinycore
     node.vm.synced_folder ".", "/vagrant", id: "vagrant-root", disabled: true
@@ -1283,7 +1283,7 @@ Vagrant.configure("2") do |config|
 
 config.vm.define "R7-vfp" do |node|
   guest_name = "R7-vfp"
-  node.vm.box = "juniper/vmx-18.2R1.9-vfp"
+  node.vm.box = "juniper/vmx-vfp"
   node.vm.box_version = "18.2R1.9"
   node.vm.guest = :tinycore
   node.vm.synced_folder ".", "/vagrant", id: "vagrant-root", disabled: true
@@ -1402,7 +1402,7 @@ config.vm.define "R7-vfp" do |node|
 
   config.vm.define "R8-vcp" do |node|
     guest_name = "R8-vcp"
-    node.vm.box = "juniper/vmx-18.2R1.9-vcp"
+    node.vm.box = "juniper/vmx-vcp"
     node.vm.box_version = "18.2R1.9"
     node.vm.guest = :tinycore
     node.vm.synced_folder ".", "/vagrant", id: "vagrant-root", disabled: true
@@ -1463,7 +1463,7 @@ config.vm.define "R7-vfp" do |node|
 
 config.vm.define "R8-vfp" do |node|
   guest_name = "R8-vfp"
-  node.vm.box = "juniper/vmx-18.2R1.9-vfp"
+  node.vm.box = "juniper/vmx-vfp"
   node.vm.box_version = "18.2R1.9"
   node.vm.guest = :tinycore
   node.vm.synced_folder ".", "/vagrant", id: "vagrant-root", disabled: true
@@ -1582,7 +1582,7 @@ config.vm.define "R8-vfp" do |node|
 
           config.vm.define "DC1-vcp" do |node|
             guest_name = "DC1-vcp"
-            node.vm.box = "juniper/vmx-18.2R1.9-vcp"
+            node.vm.box = "juniper/vmx-vcp"
             node.vm.box_version = "18.2R1.9"
             node.vm.guest = :tinycore
             node.vm.synced_folder ".", "/vagrant", id: "vagrant-root", disabled: true
@@ -1643,7 +1643,7 @@ config.vm.define "R8-vfp" do |node|
 
           config.vm.define "DC1-vfp" do |node|
             guest_name = "DC1-vfp"
-            node.vm.box = "juniper/vmx-18.2R1.9-vfp"
+            node.vm.box = "juniper/vmx-vfp"
             node.vm.box_version = "18.2R1.9"
             node.vm.guest = :tinycore
             node.vm.synced_folder ".", "/vagrant", id: "vagrant-root", disabled: true
@@ -1762,7 +1762,7 @@ config.vm.define "R8-vfp" do |node|
 
   config.vm.define "P1-vcp" do |node|
     guest_name = "P1-vcp"
-    node.vm.box = "juniper/vmx-18.2R1.9-vcp"
+    node.vm.box = "juniper/vmx-vcp"
     node.vm.box_version = "18.2R1.9"
     node.vm.guest = :tinycore
     node.vm.synced_folder ".", "/vagrant", id: "vagrant-root", disabled: true
@@ -1822,7 +1822,7 @@ config.vm.define "R8-vfp" do |node|
   end
   config.vm.define "P1-vfp" do |node|
     guest_name = "P1"
-    node.vm.box = "juniper/vmx-18.2R1.9-vfp"
+    node.vm.box = "juniper/vmx-vfp"
     node.vm.box_version = "18.2R1.9"
     node.vm.guest = :tinycore
     node.vm.synced_folder ".", "/vagrant", id: "vagrant-root", disabled: true
